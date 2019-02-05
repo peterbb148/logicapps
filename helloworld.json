@@ -1,35 +1,33 @@
 {
-    "definition": {
-        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-        "actions": {
-            "Response": {
-                "inputs": {
-                    "body": "Hello @{triggerBody()?['name']}!!",
-                    "statusCode": 200
-                },
-                "kind": "Http",
-                "runAfter": {},
-                "type": "Response"
-            }
-        },
-        "contentVersion": "1.0.0.0",
-        "outputs": {},
-        "parameters": {},
-        "triggers": {
-            "manual": {
-                "inputs": {
-                    "schema": {
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    }
-                },
-                "kind": "Http",
-                "type": "Request"
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "type": "Request",
+            "kind": "Http",
+            "inputs": {
+                "schema": {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
             }
         }
-    }
+    },
+    "actions": {
+        "Response": {
+            "runAfter": {},
+            "type": "Response",
+            "kind": "Http",
+            "inputs": {
+                "body": "Hello @{triggerBody()?['name']}!",
+                "statusCode": 200
+            }
+        }
+    },
+    "outputs": {}
 }
