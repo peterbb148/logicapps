@@ -24,7 +24,7 @@
             "type": "Response",
             "kind": "Http",
             "inputs": {
-                "body": "Hello @{triggerBody()?['name']}!",
+                "body": "Hello @{triggerBody()?['name']}!!!",
                 "statusCode": 200
             }
         }
